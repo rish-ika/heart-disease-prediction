@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            width: 100%;
+            max-width: 1024px;
+            margin: auto;
+            padding: 50px;
+            border-radius: 20px;
+            background-color: #eee;
+            box-shadow: 10px 10px 20px rgb(0,0,0,0.2);
+        }
+        .form-row {
+            display:flex;
+            flex-wrap: wrap;
+            gap:4%;
+            margin-bottom:20px;
+            width:100%
+        }
+        .form-row .form-field{
+            width:48%;
+        }
+        
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px; 
+        }
+        label {
+            display:block;
+            font-weight: 400px;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+        input {
+            display:flex;
+            place-items: center;
+            height: 38px;
+            padding: 0 10px;
+            border: none;
+            letter-spacing: 2px;
+            border-radius: 0px 0px 10px 10px;
+            font-size: 16px;
+            font-weight: 400;
+           border-bottom: 2px solid #add8e6;
+           box-shadow: 4px 4px 15px rgba(0,0,0,0.1);
+        }
+       
+
+        button {
+            width: 240px;
+            padding: 12px 0;
+            display:flex;
+            background-color: cornflowerblue;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            justify-content:center;
+            align-items:center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input[type="submit"]:hover {
+            background-color: rgb(118, 181, 226);
+        }
+        .row {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Heart Disease Detection</h2>
+    <form method="post" action="/predict">
+        <fieldset style="border: 1px solid #ccc; padding: 20px;">
+            
+            <div class="form-row">
+
+                <div class="form-field">
+                  
+                        <label for="Age">Age </label>
+                        <input type="text" id="Age" name="Age" required class="form-input">
+                    
+                </div>
+                <div class="form-field">
+                    
+                    <label for="Sex">Sex </label>
+                    <input type="text" id="Sex" name="Sex" required class="form-input">
+                 
+            </div>
+            <br>
+            <div class="form-row">
+               
+                <div class="form-field">
+                    
+                        <label for="ChestPainType">ChestPainType </label>
+                        <input type="text" id="ChestPainType" name="ChestPainType" required class="form-input">
+                    
+                </div>
+                <div class="form-field">
+                    
+                        <label for="RestingBP">Resting BP</label>
+                        <input type="text" id="RestingBP" name="RestingBP" required class="form-input">
+                    
+                </div>
+
+            </div>
+            
+            <div class="form-row">
+                <div class="form-field">
+                    
+                        <label for="Cholesterol">Cholesterol</label>
+                        <input type="text" id="Cholesterol" name="Cholesterol" required class="form-input">
+                    
+                </div>
+
+                <div class="form-field">
+                    
+                        <label for="RestingECG">Resting ECG</label>
+                        <input type="text" id="RestingECG" name="RestingECG" required class="form-input">
+                    
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    
+                        <label for="MaxHR">Max HR</label>
+                        <input type="text" id="MaxHR" name="MaxHR" required class="form-input">
+                    
+                </div>
+
+                <div class="form-field">
+                    
+                        <label for="Oldpeak">Old peak</label>
+                        <input type="text" id="Oldpeak" name="Oldpeak" required class="form-input">
+                   
+                </div>
+            
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="ST_Slope">ST Slope</label>
+                    <input type="text" id="ST_Slope" name="ST_Slope" required class="form-input">
+                </div>
+            </div>
+        
+              <div class="form-row">
+            <input type="submit" id="sub" name="sub" value="Submit">
+              </div>
+
+            <div class="row">
+                <h3>
+                    {{prediction_text}}
+                </h3>
+            </div>
+            
+        </fieldset>
+    </form>
+</body>
+</html>
